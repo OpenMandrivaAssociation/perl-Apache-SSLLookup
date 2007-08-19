@@ -1,22 +1,19 @@
 %define module	Apache-SSLLookup
-%define name	perl-%{module}
-%define version	2.00_04
-%define release	1mdk
 
-Name:      %{name}
-Version:   %{version}
-Release:   %{release}
-Summary:   Hooks for various mod_ssl functions
-License:   GPL or Artistic
-Group:     Development/Perl
-Url:       http://search.cpan.org/dist/%{name}/
-Buildrequires:	perl-devel
-Buildrequires:	apache-mod_perl-devel
-Buildroot: %{_tmppath}/%{name}-%{version}
-Source:    http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-2.00_04.tar.gz
+Summary:	Hooks for various mod_ssl functions
+Name:		perl-%{module}
+Version:	2.00_04
+Release:	%mkrel 2
+License:	GPL or Artistic
+Group:		Development/Perl
+URL:		http://search.cpan.org/dist/%{name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{version}.tar.gz
+BuildRequires:	perl-devel
+BuildRequires:	apache-mod_perl-devel
+BuildRequires:	apr-devel
+Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
-
 Apache::SSLLookup is a glue layer between Perl handlers and the
 mod_ssl public API.  under normal circumstances, you would use
 subprocess_env() to glean information about mod_ssl.
@@ -29,20 +26,24 @@ C API at any point in the request cycle.  but without using C,
 of course.
 
 %prep
+
 %setup -q -n %{module}-%{version} 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS"
+export CFLAGS="%{optflags}"
+
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-%{__make} CCFLAGS=-I/usr/include/apr-0
+%make CCFLAGS="$CCFLAGS `apr-1-config --includes`"
+
 #%{__make} test
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+
 %makeinstall_std
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,root)
@@ -50,4 +51,3 @@ CFLAGS="$RPM_OPT_FLAGS"
 %{perl_vendorarch}/auto/Apache/SSLLookup/*
 %{perl_vendorarch}/Apache/*
 %{_mandir}/man3/*
-

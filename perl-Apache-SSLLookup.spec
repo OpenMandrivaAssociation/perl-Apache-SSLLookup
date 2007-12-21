@@ -11,6 +11,7 @@ Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{ve
 BuildRequires:	perl-devel
 BuildRequires:	apache-mod_perl-devel
 BuildRequires:	apr-devel
+Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Apache::SSLLookup is a glue layer between Perl handlers and the

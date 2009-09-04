@@ -3,7 +3,7 @@
 Summary:	Hooks for various mod_ssl functions
 Name:		perl-%{module}
 Version:	2.00_04
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{name}/

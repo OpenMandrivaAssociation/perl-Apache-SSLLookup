@@ -1,17 +1,21 @@
-%define module	Apache-SSLLookup
+%define upstream_name	 Apache-SSLLookup
+%define upstream_version 2.00_04
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Hooks for various mod_ssl functions
-Name:		perl-%{module}
-Version:	2.00_04
-Release:	%mkrel 6
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{name}/
-Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{version}.tar.gz
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{upstream_version}.tar.gz
+
 BuildRequires:	apache-mod_perl-devel
 BuildRequires:	apr-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}
+BuildRequires:	perl-devel
+
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Apache::SSLLookup is a glue layer between Perl handlers and the
@@ -26,8 +30,7 @@ C API at any point in the request cycle.  but without using C,
 of course.
 
 %prep
-
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 export CFLAGS="%{optflags}"

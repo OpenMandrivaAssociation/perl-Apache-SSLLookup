@@ -2,14 +2,14 @@
 %define upstream_version 2.00_04
 
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:	5
+Version:    %perl_convert_version 2.00.04
+Release:	1
 
 Summary:	Hooks for various mod_ssl functions
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{name}/
-Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/authors/id/G/GE/GEOFF/Apache-SSLLookup-2.00_04.tar.gz
 
 BuildRequires:	apache-mod_perl-devel
 BuildRequires:	apr-devel
@@ -99,4 +99,5 @@ rm -rf %{buildroot}
 
 * Mon Oct 31 2005 Arnaud Desmons <adesmons@mandriva.org> 2.00_04-1mdk
 - Initial specfile
+
 

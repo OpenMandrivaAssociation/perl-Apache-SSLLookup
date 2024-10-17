@@ -8,7 +8,7 @@ Release:	7
 Summary:	Hooks for various mod_ssl functions
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{name}/
+Url:		https://search.cpan.org/dist/%{name}/
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{upstream_version}.tar.gz
 
 BuildRequires:	apache-mod_perl-devel

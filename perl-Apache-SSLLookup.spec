@@ -11,6 +11,7 @@ Group:		Development/Perl
 Url:		https://search.cpan.org/dist/%{name}/
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{upstream_version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:	apache-mod_perl-devel
 BuildRequires:	apr-devel
 BuildRequires:	perl-devel

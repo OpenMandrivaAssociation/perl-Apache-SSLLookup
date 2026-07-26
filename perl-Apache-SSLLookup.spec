@@ -1,15 +1,13 @@
 %define upstream_name	 Apache-SSLLookup
-%define upstream_version 2.00_04
-
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:	7
+Version:    2.00_04
+Release:	8
 
 Summary:	Hooks for various mod_ssl functions
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{name}/
-Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-SSLLookup-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	apache-mod_perl-devel
@@ -31,7 +29,7 @@ C API at any point in the request cycle.  but without using C,
 of course.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 export CFLAGS="%{optflags}"
@@ -75,9 +73,7 @@ rm -rf %{buildroot}
 
 * Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 2.0_400-1mdv2010.1
 + Revision: 504566
-- rebuild using %%perl_convert_version
-
-* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 2.00_04-6mdv2010.0
+- rebuild using %2.00_04 Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 2.00_04-6mdv2010.0
 + Revision: 430258
 - rebuild
 
